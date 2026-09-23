@@ -4,7 +4,7 @@ const sections = [
   {
     title: "Thoughts",
     description:
-      "Ideas, notes, and experiments — the section I update most.",
+      "Ideas and notes — the section I update most.",
     path: "/thoughts",
     featured: true,
   },
@@ -24,7 +24,7 @@ const sections = [
 
 export default function Home() {
   return (
-    <main className="home">
+    <main className="home container">
       <section className="hero">
         <p className="eyebrow">ML ENGINEER</p>
 

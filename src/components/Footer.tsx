@@ -4,7 +4,7 @@ const REPO_URL = "https://github.com/jayanthchennamaneni";
 export default function Footer() {
   return (
     <footer className="footer">
-      <div className="footer-inner">
+      <div className="footer-inner container">
         <p className="footer-links">
           <a href="mailto:jayanthchennamaneni@gmail.com">Email</a>
           <a href={REPO_URL} target="_blank" rel="noreferrer">

@@ -17,7 +17,7 @@ export default function App() {
   return (
     <div className="site">
       <nav className="nav">
-        <div className="nav-inner">
+        <div className="nav-inner container">
           <NavLink to="/" className="brand">
             Jayanth Chennamaneni
           </NavLink>
