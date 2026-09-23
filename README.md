@@ -1,14 +1,13 @@
 # my-site
 
-A React + TypeScript site built with Vite.
+A React + TypeScript site built with Vite, deployed on Cloudflare Workers.
 
 ## Pages
 
 - Home
-- Algorithms
-- ML
+- Thoughts
 - AI
-- Tools
+- Algorithms
 
 ## Getting started
 
@@ -24,8 +23,8 @@ npm run preview  # preview production build
 ```
 my-site/
 ├── src/
-│   ├── pages/       # Home, Algorithms, ML, AI, Tools
-│   ├── components/  # reusable components
+│   ├── pages/       # Home, Thoughts, AI, Algorithms
+│   ├── components/  # Footer, UnderConstruction
 │   ├── App.tsx      # routes + navigation
 │   └── main.tsx     # entry point
 ├── public/          # static assets

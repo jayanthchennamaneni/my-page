@@ -1,26 +1,25 @@
 import { Routes, Route, NavLink } from 'react-router-dom'
 import Home from './pages/Home'
 import Algorithms from './pages/Algorithms'
-import ML from './pages/ML'
+import Thoughts from './pages/Thoughts'
 import AI from './pages/AI'
-import Tools from './pages/Tools'
+import Footer from './components/Footer'
+
 import './index.css'
 
 const links = [
-  { to: '/', label: 'Home' },
-  { to: '/algorithms', label: 'Algorithms' },
-  { to: '/ml', label: 'ML' },
+  { to: '/thoughts', label: 'Thoughts' },
   { to: '/ai', label: 'AI' },
-  { to: '/tools', label: 'Tools' },
+  { to: '/algorithms', label: 'Algorithms' },
 ]
 
 export default function App() {
   return (
-    <>
+    <div className="site">
       <nav className="nav">
         <div className="nav-inner">
           <NavLink to="/" className="brand">
-            my&nbsp;site
+            Jayanth Chennamaneni
           </NavLink>
           <div className="nav-links">
             {links.map((l) => (
@@ -34,10 +33,11 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/algorithms" element={<Algorithms />} />
-        <Route path="/ml" element={<ML />} />
+        <Route path="/thoughts" element={<Thoughts />} />
         <Route path="/ai" element={<AI />} />
-        <Route path="/tools" element={<Tools />} />
+
       </Routes>
-    </>
+      <Footer />
+    </div>
   )
 }
