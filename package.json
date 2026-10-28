@@ -6,9 +6,13 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "dependencies": {
+    "@fontsource/ibm-plex-mono": "^5.3.0",
+    "@fontsource/inter": "^5.3.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.2"
@@ -20,6 +24,7 @@
     "@vitejs/plugin-react": "^6.1.1",
     "typescript": "^5.6.2",
     "vite": "^8.3.0",
+    "vitest": "^5.0.1",
     "wrangler": "^4.137.0"
   }
 }
