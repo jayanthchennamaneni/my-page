@@ -7,7 +7,13 @@
       name="description"
       content="Jayanth Chennamaneni is a machine learning engineer who experiments with ML systems and learns along the way."
     />
-    <meta name="theme-color" content="#fafaf9" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fafaf9" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#171412" />
+    <script>
+      // Apply the saved (or system) theme before first paint to avoid a flash.
+      document.documentElement.dataset.theme = localStorage.getItem('theme') ||
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+    </script>
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Jayanth Chennamaneni" />
     <meta

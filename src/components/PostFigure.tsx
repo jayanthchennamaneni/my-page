@@ -1,14 +1,14 @@
 import type { FigureId } from '../data/content'
 
-const INK = '#1c1714'
-const SOFT = '#3e3733'
-const MUTED = '#5f5750'
-const LINE = '#d6d3d1'
-const FAINT = '#eceae8'
-const PANEL = '#f5f5f4'
-const GREEN = '#008a3d'
-const GREEN_SOFT = '#e3f5e9'
-const GRAY = '#a8a29e'
+const INK = 'var(--text)'
+const SOFT = 'var(--text-soft)'
+const MUTED = 'var(--muted)'
+const LINE = 'var(--line)'
+const FAINT = 'var(--panel-strong)'
+const PANEL = 'var(--bg-soft)'
+const GREEN = 'var(--green)'
+const GREEN_SOFT = 'var(--green-soft)'
+const GRAY = 'var(--muted)'
 const MONO = "'IBM Plex Mono', 'SFMono-Regular', Consolas, monospace"
 
 function FigureFrame({ title, note, children }: { title: string; note?: string; children: React.ReactNode }) {

@@ -10,23 +10,35 @@ export default function Home() {
 
   return (
     <main id="main-content" tabIndex={-1}>
-      <header className="masthead">
+      <section className="about">
         <div className="container">
-          <h1>Jayanth<br />Chennamaneni</h1>
-          <p className="masthead-role">machine learning engineer</p>
+          <div className="about-inner">
+            <p className="about-text">
+              Hallo, I’m Jayanth Chennamaneni (CJ). I train, optimize, and
+              deploy ML models in production.
+            </p>
+            <p className="about-text">
+              <strong className="about-bet">My bet: within five years, small
+              models will run most production systems.</strong> A small model
+              that does one thing well beats a big one that does everything
+              okay. I experiment with that idea and learn from the people
+              working on it.
+            </p>
+            <p className="about-text">
+              Outside work, I watch football. Like ML, it’s about reading
+              the game and getting the small things right.
+            </p>
+          </div>
         </div>
-      </header>
+      </section>
 
       <section className="blog-section">
         <div className="container">
           <nav className="blog-index" aria-label="Blog posts">
-            {posts.map((post, index) => (
+            {posts.map((post) => (
               <Link key={post.id} to={`/post/${post.id}`} className="index-row">
-                <span className="index-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
-                <span className="index-main">
-                  <strong>{post.title}</strong>
-                  <span>{post.intro}</span>
-                </span>
+                <strong className="index-title">{post.title}</strong>
+                <span className="index-intro">{post.intro}</span>
                 <span className="index-meta">
                   {post.date && <span>{post.date}</span>}
                   <span className="index-arrow" aria-hidden="true">→</span>

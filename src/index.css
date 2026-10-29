@@ -12,6 +12,7 @@
   --line-bright: #1c1714;
   --yellow: #a15c00;
   --red: #b42318;
+  --hover: rgb(0 138 61 / 5%);
   --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --mono: 'IBM Plex Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
   --max: 1160px;
@@ -21,6 +22,26 @@
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  color-scheme: light;
+}
+
+/* Dark theme — same hues, lifted for dark backgrounds */
+:root[data-theme='dark'] {
+  --bg: #171412;
+  --bg-soft: #1d1a17;
+  --panel: #201d19;
+  --panel-strong: #272320;
+  --text: #ece8e2;
+  --text-soft: #c8c3ba;
+  --muted: #948d83;
+  --green: #3ec46e;
+  --green-soft: #1e3324;
+  --line: #322e29;
+  --line-bright: #ece8e2;
+  --yellow: #d99a2b;
+  --red: #e5675a;
+  --hover: rgb(62 196 110 / 8%);
+  color-scheme: dark;
 }
 
 * {
@@ -126,7 +147,7 @@ main:focus {
 .post-meta,
 .footer-inner {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -629,7 +650,7 @@ main:focus {
   overflow-x: auto;
   border: 1px solid var(--line);
   color: var(--text);
-  background: #eef0ee;
+  background: var(--panel-strong);
   font-size: 14px;
   line-height: 1.7;
   tab-size: 2;
@@ -655,6 +676,7 @@ main:focus {
 
 .footer-inner {
   min-height: 68px;
+  max-width: 720px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -717,46 +739,50 @@ main:focus {
   gap: 10px;
 }
 
-/* Masthead */
-.masthead {
-  padding: 48px 0 0;
+/* About — short intro, replacing the masthead */
+.about {
+  padding: 56px 0 0;
 }
 
-.masthead h1 {
-  margin-bottom: 20px;
+.about-inner {
+  max-width: 720px;
+  margin-inline: auto;
+}
+
+.about-text {
+  max-width: 62ch;
+  color: var(--text-soft);
+  font-size: 16px;
+  line-height: 1.7;
+  letter-spacing: -0.01em;
+}
+
+.about-text + .about-text {
+  margin-top: 14px;
+}
+
+.about-bet {
   color: var(--text);
-  font-size: clamp(40px, 7.5vw, 76px);
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: -0.075em;
+  font-weight: 600;
 }
 
-.masthead-role {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-/* Blog index */
+/* Blog index — single-column, left-aligned text layout */
 .blog-section {
   padding: 56px 0 96px;
 }
 
 .blog-index {
+  max-width: 720px;
+  margin-inline: auto;
   border-top: 1px solid var(--line);
 }
 
 .index-row {
   width: 100%;
-  padding: 20px 0;
+  padding: 22px 0;
   border: 0;
   border-bottom: 1px solid var(--line);
-  display: grid;
-  grid-template-columns: 44px minmax(0, 1fr) auto;
-  align-items: center;
-  gap: 18px;
+  display: block;
   color: inherit;
   background: transparent;
   cursor: pointer;
@@ -768,44 +794,33 @@ main:focus {
 
 .index-row:hover {
   padding-left: 12px;
-  background: rgb(0 138 61 / 4%);
+  background: var(--hover);
 }
 
-.index-number {
-  color: var(--green);
-  font-family: var(--mono);
-  font-size: 11px;
-}
-
-.index-main {
-  min-width: 0;
-  display: grid;
-  gap: 6px;
-}
-
-.index-main strong {
+.index-title {
+  display: block;
   color: var(--text);
-  font-size: 19px;
+  font-size: 18px;
   font-weight: 500;
   letter-spacing: -0.05em;
 }
 
-.index-main > span {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+.index-intro {
+  display: block;
+  margin-top: 8px;
   color: var(--muted);
-  font-size: 13px;
-  line-height: 1.55;
+  font-size: 16px;
+  line-height: 1.6;
 }
 
 .index-meta {
   display: inline-flex;
   align-items: baseline;
   gap: 14px;
+  margin-top: 10px;
   color: var(--muted);
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   white-space: nowrap;
@@ -823,13 +838,21 @@ main:focus {
 
 /* Nameplate — the site name, on every page */
 .nameplate {
-  padding: 22px 0;
+  padding: 14px 0;
   border-bottom: 1px solid var(--line);
+}
+
+.nameplate-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  min-height: 44px;
 }
 
 .nameplate a {
   color: var(--text);
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 600;
   letter-spacing: -0.03em;
   text-decoration: none;
@@ -837,6 +860,23 @@ main:focus {
 }
 
 .nameplate a:hover {
+  color: var(--green);
+}
+
+.theme-toggle {
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  border: 0;
+  color: var(--muted);
+  background: transparent;
+  cursor: pointer;
+  transition: color 160ms ease;
+}
+
+.theme-toggle:hover {
   color: var(--green);
 }
 
@@ -971,19 +1011,6 @@ main:focus {
 }
 
 @media (max-width: 700px) {
-  .index-row {
-    grid-template-columns: 28px minmax(0, 1fr);
-    gap: 12px;
-  }
-
-  .index-main strong {
-    font-size: 17px;
-  }
-
-  .index-meta {
-    grid-column: 1 / -1;
-  }
-
   .post-page {
     padding-top: 40px;
   }
