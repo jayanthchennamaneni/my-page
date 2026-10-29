@@ -1,18 +1,15 @@
-# Jayanth Chennamaneni — Personal Site
+# Jayanth Chennamaneni — Personal Blog
 
-A small personal engineering notebook for thoughts, AI systems, algorithms, and tools.
+A small, personal engineering notebook. One page lists every post; every post has its own page.
 
-Built with React, TypeScript, Vite, and Cloudflare Workers.
+Built with React, TypeScript, Vite, and Cloudflare Workers. Fonts (Inter, IBM Plex Mono) are self-hosted via `@fontsource` — no runtime dependency on external font CDNs.
 
-## Sections
+## Pages
 
-- `/` — Compact introduction and section index
-- `/thoughts` — Personal ideas, observations, and unfinished notes
-- `/ai` — Engineering explanations for vLLM, prefill/decode, and quantization
-- `/algorithms` — B-Tree vs B+ Tree with a visual comparison
-- `/tools` — Lightweight notes about tools used and learned
+- `/` — Nameplate bar, masthead with the name, and the numbered index of all posts, newest first
+- `/post/:id` — One page per post: meta line, title, article, and older/newer navigation
 
-The design follows `AGENTS.md`: minimal, readable, calm, and easy to maintain.
+Any other URL redirects to `/`.
 
 ## Local development
 
@@ -28,24 +25,25 @@ npm run build
 npm run preview
 ```
 
+## Deployment
+
+The site deploys to Cloudflare Workers. Configuration is in `wrangler.jsonc`; pushing to `main` triggers the deploy.
+
 ## Content
 
-Content lives in `src/data/content.ts`.
+All posts live in `src/data/content.ts` as one `posts` array, ordered newest first (`01` in the index is the newest). A post has an `id`, `label`, `title`, `intro`, `date`, and content `blocks` — paragraphs, bullets, code, tables, and figure slots.
 
-- **Thoughts** should express personal perspectives and can remain unfinished.
-- **AI** should explain technical systems from an engineering perspective.
-- **Algorithms** should show what is happening visually when it improves understanding.
-- **Tools** should stay lightweight and reflect actual use or learning.
+Post-specific interactive visuals (the tokenizer and quantization demos) are attached in `src/pages/PostPage.tsx`. Static figures are dependency-free SVG components in `src/components/PostFigure.tsx`.
 
 ## Structure
 
 ```text
 src/
-├── components/  # Header, footer, selectors, and visual helpers
-├── data/        # Site content
-├── hooks/       # Page metadata helpers
-├── pages/       # Route components
-├── App.tsx      # Routes and shared layout
-├── main.tsx     # Browser entry point
-└── index.css    # Visual system and responsive styles
+├── components/  # Article renderer, figures, interactive visuals, footer
+├── data/        # All post content (content.ts)
+├── hooks/       # Page metadata helper
+├── pages/       # Home (index) and PostPage routes
+├── App.tsx      # Routes, nameplate header, layout
+├── main.tsx     # Entry point, self-hosted font imports
+└── index.css    # Design system and responsive styles
 ```
